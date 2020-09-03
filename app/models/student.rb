@@ -1,7 +1,8 @@
 class Student < ActiveRecord::Base
 
-    belongs_to :teacher
-    
+    has_many :student_teachers
+    has_many :teachers, through: :student_teachers
+
     def full_name
         "#{self.first_name} #{self.last_name}"
     end    
